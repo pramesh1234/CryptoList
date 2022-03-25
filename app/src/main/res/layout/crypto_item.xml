@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/cryptoNameTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:textAllCaps="true"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="BTC/" />
+
+        <TextView
+            android:id="@+id/cryptoAssetTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textAllCaps="true"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@id/cryptoNameTV"
+            app:layout_constraintStart_toEndOf="@id/cryptoNameTV"
+            tools:text="INR" />
+
+        <TextView
+            android:id="@+id/cryptoPriceTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textAllCaps="true"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cryptoNameTV"
+            tools:text="1200000000 INR" />
+
+        <TextView
+            android:id="@+id/updateTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="updated 42 sec ago" />
+
+        <TextView
+            android:id="@+id/trendTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:drawableLeftCompat="@drawable/ic_baseline_arrow_downward_24"
+            app:layout_constraintEnd_toStartOf="@id/viewMoreIV"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/verticalGL"
+            app:layout_constraintBottom_toBottomOf="@id/cryptoPriceTV"
+            app:layout_constraintTop_toBottomOf="@id/updateTV"
+            tools:text="0.03%" />
+
+        <ImageView
+            android:id="@+id/viewMoreIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/updateTV" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/verticalGL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.7"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fullCL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/cryptoPriceTV"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent">
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/middleGL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5"/>
+            <TextView
+                android:id="@+id/lowestTextTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lowest_price"
+                android:textSize="16sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:fontFamily="@font/roboto_medium"/>
+            <TextView
+                android:id="@+id/lowestPriceTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="1111110000000"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@id/lowestTextTV"
+                android:layout_marginTop="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:fontFamily="@font/roboto_medium"/>
+            <TextView
+                android:id="@+id/highestTextTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/highest_price"
+                android:textSize="16sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="@id/middleGL"
+                android:fontFamily="@font/roboto_medium"/>
+            <TextView
+                android:id="@+id/highestTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="1111110000000"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@id/highestTextTV"
+                android:layout_marginTop="2dp"
+                app:layout_constraintStart_toStartOf="@id/middleGL"
+                android:fontFamily="@font/roboto_medium"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
