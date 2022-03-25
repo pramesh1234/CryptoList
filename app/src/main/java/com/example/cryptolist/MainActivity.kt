@@ -9,7 +9,6 @@ import com.example.cryptolist.databinding.ActivityMainBinding
 import com.example.cryptolist.model.CryptoModel
 import com.example.cryptolist.viewmodel.MainViewModel
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class MainActivity : MyAppCompatActivity() {
@@ -23,17 +22,20 @@ class MainActivity : MyAppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setUpLoader(viewModel)
-        adapter = CryptoListAdapter(this,ArrayList<CryptoModel>())
+        adapter = CryptoListAdapter(this, ArrayList<CryptoModel>())
         binding.progressBar.visibility = View.VISIBLE
         viewModel.getCryptoList()
-        val delay:Long = 10000
-        val period:Long = 10000
+        val delay: Long = 10000
+        val period: Long = 10000
         val timer = Timer()
         timer.scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
                 viewModel.getCryptoList()
             }
         }, delay, period)
+        binding.swiperefresh.setOnRefreshListener {
+            viewModel.getCryptoList()
+        }
     }
 
     override fun initObservers() {
@@ -43,6 +45,9 @@ class MainActivity : MyAppCompatActivity() {
             binding.recyclerView.adapter = adapter
             adapter.updateList(it)
             binding.progressBar.visibility = View.INVISIBLE
+            if (binding.swiperefresh.isRefreshing) {
+                binding.swiperefresh.isRefreshing = false
+            }
         }
     }
 
